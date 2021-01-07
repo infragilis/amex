@@ -1,21 +1,21 @@
 ############################################
-# boonstra@netapp.com / 2019
+# boonstra@netapp.com / 2021
 #############################################
 netapp_hostname: "192.168.0.81"
 netapp_hostname_dest: "172.25.3.43"
 netapp_username: "admin"
 netapp_password: "netapp123"
-vserver: ansible_svm_name
-vserver_dest: ansible_svm_remote_name
+vserver: ansible_test
+vserver_dest: ansible_test_remote
 # address is the to_be_created SVM ip
 address_nfs: 172.30.3.25
 address_iscsi: 172.30.3.26
 address_cifs: 172.30.3.27
 aggrname: kubOntap97_01_FC_1
 state: present
-volname: test_vol_name
-dest_vol: test_vol_name_dest
-igroup_name: iscsi-test_name
+volname: test_vol
+dest_vol: test_vol__dest
+igroup_name: iscsi-testgroup
 lun_name: iscsi_test_name
 qtree_name: qt_name
 share_name: sh_name
