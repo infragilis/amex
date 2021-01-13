@@ -1,0 +1,12 @@
+- mail:
+    host: 127.0.0.1
+    port: 2025
+    subject: Ansible-report
+    body: Hello, this is an e-mail. "{{ vol_name }}" is created ;-)
+    from: jane@example.net (Jane Jolie)
+    to: John Doe <j.d@example.org>, Suzie Something <sue@example.com>
+    cc: Charlie Root <root@localhost>
+    attach: /etc/group /tmp/pavatar2.png
+    headers: 'Reply-To=john@example.com|X-Special="Something or other"'
+    charset: utf8
+  delegate_to: localhost
