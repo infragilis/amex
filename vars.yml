@@ -5,7 +5,10 @@ netapp_hostname: "192.168.0.81"
 netapp_hostname_dest: "172.25.3.43"
 netapp_username: "admin"
 netapp_password: "netapp123"
-vserver: ansible_test
+aiq_hostname: "192.168.0.85"
+aiq_username: "umadmin"
+aiq_password: "netapp123"
+vserver: ansible_svm_name
 vserver_dest: ansible_test_remote
 # address is the to_be_created SVM ip
 address_nfs: 172.30.3.25
@@ -21,7 +24,7 @@ qtree_name: qt_name
 share_name: sh_name
 group_name: Administrators
 permission: full_control
-new_size: 40
+new_size: 4
 #cifs_domain variables
 cifs_user: Administrator
 cifs_pass: xxx
