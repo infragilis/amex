@@ -13,7 +13,6 @@
     volname: "{{ volname }}"
     vserver: "{{ vserver }}"
     aggrname: " {{ aggrname }}"
-    policy: "{{ volname }}_policy"
     state: "{{ state }}"
   tasks:
   - name: Change volume size
@@ -23,6 +22,10 @@
       aggregate_name: "{{ aggrname }}"
       size: "{{ new_size }}"
       size_unit: gb
+      policy: "{{ policy }}"
+      junction_path: "/{{ volname }}"
+      space_guarantee: "none"
+      volume_security_style: unix
       vserver: "{{ vserver }}"
       hostname: "{{ netapp_hostname }}"
       username: "{{ netapp_username }}"

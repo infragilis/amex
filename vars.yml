@@ -16,6 +16,7 @@ address_iscsi: 172.30.3.26
 address_cifs: 172.30.3.27
 aggrname: kubOntap97_01_FC_1
 state: present
+policy: e_policy_name
 volname: test_vol
 dest_vol: test_vol__dest
 igroup_name: iscsi-testgroup
