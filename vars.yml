@@ -18,6 +18,10 @@ aggrname: kubOntap97_01_FC_1
 state: present
 policy: e_policy_name
 volname: test_vol
+client_match: 0.0.0.0/0
+ro_rule: sys
+rw_rule: sys
+super_user_security: sys
 dest_vol: test_vol__dest
 igroup_name: iscsi-testgroup
 lun_name: iscsi_test_name
