@@ -22,12 +22,12 @@
   - name: Create volume 
     na_ontap_volume:
       state: "{{ state }}"
-      name: "{{ comment }}_vol"
+      name: "{{ comment }}"
       aggregate_name: "{{ aggrname }}"
       size: "{{ new_size }}"
       size_unit: gb
       policy: "{{ policy }}"
-      junction_path: "/{{ comment }}_vol"
+      junction_path: "/{{ comment }}"
       space_guarantee: "none"
       volume_security_style: unix
       comment: "{{ comment }}"
