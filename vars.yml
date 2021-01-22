@@ -18,6 +18,7 @@ aggrname: kubOntap97_01_FC_1
 state: present
 policy: e_policy_name
 volname: test_vol
+comment: some_comment
 client_match: 0.0.0.0/0
 ro_rule: sys
 rw_rule: sys
