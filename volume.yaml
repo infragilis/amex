@@ -10,12 +10,12 @@
   vars_files:
    vars.yml
   vars:
-    volname: "{{ volname }}"
+    volname: "{{ comment }}_vol"
     vserver: "{{ vserver }}"
     aggrname: " {{ aggrname }}"
     state: "{{ state }}"
   tasks:
-  - name: Change volume size
+  - name: Create volume 
     na_ontap_volume:
       state: "{{ state }}"
       name: "{{ comment }}_vol"
