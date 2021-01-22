@@ -19,6 +19,12 @@
       https: true
       validate_certs: false
   tasks:
+  - name: Create Policy
+    na_ontap_export_policy:
+      state: "{{ state }}"
+      name: "{{ comment }}"
+      vserver: "{{ vserver }}"
+      <<: *login
   - name: Create volume 
     na_ontap_volume:
       state: "{{ state }}"
@@ -26,10 +32,20 @@
       aggregate_name: "{{ aggrname }}"
       size: "{{ new_size }}"
       size_unit: gb
-      policy: "{{ policy }}"
+      policy: "{{ comment }}"
       junction_path: "/{{ comment }}"
       space_guarantee: "none"
       volume_security_style: unix
       comment: "{{ comment }}"
       vserver: "{{ vserver }}"
+      <<: *login
+  - name: Setup rules
+    na_ontap_export_policy_rule:
+      state: "{{ state }}"
+      policy_name: "{{ comment }}"
+      vserver: "{{ vserver }}"
+      client_match: "{{ client_match }}"
+      ro_rule: "{{ ro_rule }}"
+      rw_rule: "{{ rw_rule }}"
+      super_user_security: "{{ super_user_security }}"
       <<: *login
