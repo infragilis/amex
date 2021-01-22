@@ -21,8 +21,8 @@
   tasks:
   - name: Create Policy 
     na_ontap_export_policy: 
-      state: "{{ comment }}" 
-      name: "{{ policy }}" 
+      state: "{{ state }}" 
+      name: "{{ comment }}" 
       vserver: "{{ vserver }}" 
       <<: *login
   - name: Setup rules 
