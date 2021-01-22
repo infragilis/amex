@@ -18,12 +18,12 @@
   - name: Change volume size
     na_ontap_volume:
       state: "{{ state }}"
-      name: "{{ volname }}"
+      name: "{{ comment }}_vol"
       aggregate_name: "{{ aggrname }}"
       size: "{{ new_size }}"
       size_unit: gb
       policy: "{{ policy }}"
-      junction_path: "/{{ volname }}"
+      junction_path: "/{{ comment }}_vol"
       space_guarantee: "none"
       volume_security_style: unix
       comment: "{{ comment }}"
