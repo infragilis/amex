@@ -9,11 +9,6 @@
   gather_facts: false
   vars_files:
    vars.yml
-  vars:
-    volname: "{{ comment }}_vol"
-    vserver: "{{ vserver }}"
-    aggrname: " {{ aggrname }}"
-    state: "{{ state }}"
   tasks:
   - name: Create volume 
     na_ontap_volume:
