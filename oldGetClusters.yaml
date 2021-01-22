@@ -24,7 +24,6 @@
       hostname: "{{ aiq_hostname }}"
       username: "{{ aiq_username }}"
       password: "{{ aiq_password }}"
-      validate_certs: false
     register: cluster_list
   - debug:
       var: cluster_list
