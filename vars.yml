@@ -5,6 +5,10 @@ netapp_hostname: "192.168.0.81"
 netapp_hostname_dest: "172.25.3.43"
 netapp_username: "admin"
 netapp_password: "netapp123"
+https: false
+validate_certs: false
+home_port: e0c
+home_node: sim-01
 aiq_hostname: "192.168.0.85"
 aiq_username: "umadmin"
 aiq_password: "netapp123"
@@ -14,10 +18,10 @@ vserver_dest: ansible_test_remote
 address_nfs: 172.30.3.25
 address_iscsi: 172.30.3.26
 address_cifs: 172.30.3.27
-aggrname: kubOntap97_01_FC_1
+aggrname: aggr1
 state: present
 policy: e_policy_name
-volname: test_vol
+volname: test_vol4
 comment: AIM123444
 client_match: 0.0.0.0/0
 ro_rule: sys
