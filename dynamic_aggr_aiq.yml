@@ -1,0 +1,49 @@
+############################################
+# boonstra@netapp.com / 2021
+# global/private vars are in vars.yml
+# playbook specific vars are down below
+#############################################
+---
+- hosts: localhost
+  collections:
+    - netapp.ontap
+    - netapp.um_info
+  gather_facts: false
+  vars_files:
+   vars.yml
+  vars:
+    login: &login
+      hostname: "{{ netapp_hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      https: true
+      validate_certs: false
+  tasks:
+  - name: Get facts
+    na_um_list_aggregates:
+      hostname: "{{ aiq_hostname }}"
+      username: "{{ aiq_username }}"
+      password: "{{ aiq_password }}"
+      validate_certs: false
+    register: netapp_info
+  - name: Aggregate selection
+    set_fact: 
+      aggr_name: "{{ item }}"
+    with_items: "{{ netapp_info.ontap_info.aggregate_info }}"
+    when: 
+    - (netapp_info.ontap_info.aggregate_info[item].aggr_space_attributes.size_available|int / 1024 / 1024 / 1024 ) > size|int
+    - aggr_name is not defined
+  - name: Create Volume
+    na_ontap_volume:
+      state: "{{ state }}"
+      name: "{{ volname }}"
+      aggregate_name: "{{ aggr_name }}"
+      size: "{{ size }}"
+      junction_path: "/{{ volname }}"
+      size_unit: gb
+      space_guarantee: none
+      percent_snapshot_space: 0
+      vserver: "{{ vserver }}"
+      comment: nbu
+      <<: *login
+    when: aggr_name is defined

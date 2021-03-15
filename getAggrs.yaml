@@ -1,8 +1,3 @@
-############################################
-# boonstra@netapp.com / 2021
-# global/private vars are in vars.yml
-# playbook specific vars are down below
-#############################################
 ---
 - hosts: localhost
   collections:
