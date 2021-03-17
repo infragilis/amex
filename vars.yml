@@ -21,7 +21,7 @@ address_cifs: 172.30.3.27
 aggrname: aggr1
 state: present
 policy: e_policy_name
-volname: test_vol4
+volname: ansible_vol
 comment: AIM123444
 client_match: 0.0.0.0/0
 ro_rule: sys
